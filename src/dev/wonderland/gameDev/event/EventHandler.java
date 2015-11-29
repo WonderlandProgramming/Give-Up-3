@@ -15,5 +15,5 @@ public interface EventHandler {
 	 * @param event The event that was called.
 	 * @return If event was successfull.
 	 */
-	public boolean onEvent(Event event);
+	public void onEvent(Event event);
 }

@@ -11,8 +11,7 @@ package dev.wonderland.gameDev.event;
  * @version 0.1
  */
 public class Event {
-	private int type;
-	boolean handled;
+	private Class<? extends Event> type;
 
 	/**
 	 * Creates a Event with the given Type
@@ -20,7 +19,7 @@ public class Event {
 	 * @param type
 	 *            the type of the Event
 	 */
-	protected Event(int type) {
+	protected Event(Class<? extends Event> type) {
 		this.type = type;
 	}
 
@@ -29,7 +28,7 @@ public class Event {
 	 * 
 	 * @return the ID / Type
 	 */
-	public int getType() {
+	public Class<? extends Event> getType() {
 		return type;
 	}
 }

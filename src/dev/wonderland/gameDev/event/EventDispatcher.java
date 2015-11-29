@@ -25,11 +25,8 @@ class EventDispatcher {
 	 * @param type the they of the event checked
 	 * @param handler the handler that is used
 	 */
-	public void dispatch(int type, EventHandler handler) {
-		if (event.handled)
-			return;
-
+	public void dispatch(Class<? extends Event> type, EventHandler handler) {
 		if (event.getType() == type)
-			event.handled = handler.onEvent(event);
+			handler.onEvent(event);
 	}
 }

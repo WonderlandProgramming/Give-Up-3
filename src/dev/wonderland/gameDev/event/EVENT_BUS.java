@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class EVENT_BUS {
 
-	private static HashMap<Integer, List<EventHandler>> eventList;
+	private static HashMap<Class<? extends Event>, List<EventHandler>> eventList;
 
 	/**
 	 * This Method will register a {@link EventHandler} to be active when a
@@ -27,9 +27,9 @@ public class EVENT_BUS {
 	 *            The {@link EventHandler} that is going to be called when the
 	 *            event is hit.
 	 */
-	public static void registerEventHandler(int eventID, EventHandler handler) {
+	public static void registerEventHandler(Class<? extends Event> eventID, EventHandler handler) {
 		if (eventList == null)
-			eventList = new HashMap<Integer, List<EventHandler>>();
+			eventList = new HashMap<Class<? extends Event>, List<EventHandler>>();
 
 		if (eventList.containsKey(eventID)) {
 			eventList.get(eventID).add(handler);
